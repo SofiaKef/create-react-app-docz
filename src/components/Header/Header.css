@@ -1,0 +1,13 @@
+.headerstyle {
+  padding: "20px 0";
+  lineHeigh: "2em";
+}
+
+h1 {
+  fontSize: "25px";
+  marginBottom: "15px";
+}
+
+p {
+  fontSize: "19PX";
+}
