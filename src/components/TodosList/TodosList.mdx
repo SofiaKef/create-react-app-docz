@@ -1,0 +1,50 @@
+---
+name: Todos List
+route: /todoslist/
+---
+
+import { Playground, Props } from 'docz'
+import TodosList from './TodosList.js'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+# Todos List
+
+<Props of={ TodosList } />
+
+<Playground>
+  {() => {
+  const [todos, setTodos] = useState([]);
+  const handleChange = id => {
+    setTodos(
+      todos.map(todo => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+    )
+  }
+  const deleteTodo = id => {
+    setTodos([
+      ...todos.filter(todo => {
+        return todo.id !== id
+      }),
+    ])
+  }
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
+      .then(response => setTodos(response.data))
+  }, [])
+    return (
+      <>
+        <TodosList
+          todos={todos}
+          handleChange={handleChange}
+          deleteTodo={deleteTodo}
+        />
+      </>
+    )
+  }}
+</Playground>

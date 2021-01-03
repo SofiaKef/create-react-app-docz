@@ -1,0 +1,27 @@
+---
+name: Header
+route: /header/
+---
+
+import { Playground, Props } from 'docz'
+import Header from './Header.js'
+import { useState } from 'react';
+
+# Todo App
+
+<Props of={ Header } />
+
+<Playground>
+  {() => {
+    const [show, setShow] = useState(false);
+    const handleChange = () => {
+      setShow(!show)
+    }
+    return (
+      <>
+        <Header headerSpan={show} />
+        <button onClick={handleChange} >Click simulation</button>
+      </>
+    )
+  }}
+</Playground>

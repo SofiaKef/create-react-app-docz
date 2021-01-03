@@ -1,0 +1,61 @@
+---
+name: Todo Item
+route: /todoitem/
+---
+
+import { Playground, Props } from 'docz'
+import TodoItem from './TodoItem.js'
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+# Todo Item
+
+<Props of={ TodoItem } />
+
+<Playground>
+  {() => {
+    const [todos, setTodos] = useState([]);
+    const handleChange = (id) => {
+      setTodos(
+        todos.map(todo => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed
+          }
+          return todo;
+        })
+      )
+    }
+    const deleteTodo = (id) => {
+      setTodos([
+        ...todos.filter(todo => {
+          return todo.id !== id
+        }),
+      ])
+    }
+    useEffect(() => {
+      axios
+        .get('https://jsonplaceholder.typicode.com/todos?_limit=1')
+        .then(response => setTodos(response.data))
+    }, [])
+    if (todos[0] !== undefined) {
+      return (
+        <>
+          <TodoItem
+            todo={todos[0]}
+            handleChange={handleChange}
+            deleteTodo={deleteTodo}
+          />
+        </>
+      )
+    }
+    return (
+      <>
+        <TodoItem
+          todo={null}
+          handleChange={handleChange}
+          deleteTodo={deleteTodo}
+        />
+      </>
+    )
+  }}
+</Playground>

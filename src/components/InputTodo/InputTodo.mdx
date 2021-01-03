@@ -1,0 +1,24 @@
+---
+name: Input Todo
+route: /inputtodo/
+---
+
+import { Playground, Props } from 'docz'
+import InputTodo from './InputTodo.js'
+
+# Todo Item
+
+<Props of={ InputTodo } />
+
+<Playground>
+  {() => {
+    const addTodo = (title) => {
+      console.log(`New to do: ${title}`)
+    }
+    return (
+      <>
+        <InputTodo addTodo={addTodo} />
+      </>
+    )
+  }}
+</Playground>

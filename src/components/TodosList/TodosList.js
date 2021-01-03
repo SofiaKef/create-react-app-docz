@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TodoItem from '../TodoItem/TodoItem';
 
 const TodosList = (props) => {
@@ -8,12 +9,18 @@ const TodosList = (props) => {
         <TodoItem
           key={todo.id}
           todo={todo}
-          handleChangeProps={props.handleChangeProps}
-          deleteTodoProps={props.deleteTodoProps}
+          handleChange={props.handleChange}
+          deleteTodo={props.deleteTodo}
         />
       ))}
     </div>
   )
+};
+
+TodosList.propTypes = {
+  todos: PropTypes.array.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
 };
 
 export default TodosList;

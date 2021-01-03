@@ -92,9 +92,51 @@
       }
     },
     {
+      "key": "src/components/Header/Header.mdx",
+      "value": {
+        "name": "Header",
+        "route": "/header/",
+        "id": "8f55aa099a0ac7e0f41f8b2c8aedf8d4",
+        "filepath": "src/components/Header/Header.mdx",
+        "fullpath": "F:\\create-react-app-docz\\src\\components\\Header\\Header.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-components-header-header",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "todo-app",
+            "depth": 1,
+            "value": "Todo App"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/InputTodo/InputTodo.mdx",
+      "value": {
+        "name": "Input Todo",
+        "route": "/inputtodo/",
+        "id": "7a728f9f8c8ef490356050bca87ad821",
+        "filepath": "src/components/InputTodo/InputTodo.mdx",
+        "fullpath": "F:\\create-react-app-docz\\src\\components\\InputTodo\\InputTodo.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-components-input-todo-input-todo",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "todo-item",
+            "depth": 1,
+            "value": "Todo Item"
+          }
+        ]
+      }
+    },
+    {
       "key": "src/components/TodoContainer/TodoContainer.mdx",
       "value": {
-        "name": "Hello world",
+        "name": "Todo App",
         "route": "/",
         "id": "2dfdb5dc1916773a6ee0ef2a21784deb",
         "filepath": "src/components/TodoContainer/TodoContainer.mdx",
@@ -111,6 +153,48 @@
           }
         ]
       }
+    },
+    {
+      "key": "src/components/TodoItem/TodoItem.mdx",
+      "value": {
+        "name": "Todo Item",
+        "route": "/todoitem/",
+        "id": "a66c41e68696fba7f2c8cc3b1dd03c07",
+        "filepath": "src/components/TodoItem/TodoItem.mdx",
+        "fullpath": "F:\\create-react-app-docz\\src\\components\\TodoItem\\TodoItem.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-components-todo-item-todo-item",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "todo-item",
+            "depth": 1,
+            "value": "Todo Item"
+          }
+        ]
+      }
+    },
+    {
+      "key": "src/components/TodosList/TodosList.mdx",
+      "value": {
+        "name": "Todos List",
+        "route": "/todoslist/",
+        "id": "940325ae9b435c7a6359d417b27fc744",
+        "filepath": "src/components/TodosList/TodosList.mdx",
+        "fullpath": "F:\\create-react-app-docz\\src\\components\\TodosList\\TodosList.mdx",
+        "link": "",
+        "hidden": false,
+        "slug": "src-components-todos-list-todos-list",
+        "menu": "",
+        "headings": [
+          {
+            "slug": "todos-list",
+            "depth": 1,
+            "value": "Todos List"
+          }
+        ]
+      }
     }
   ],
   "props": [
@@ -121,7 +205,16 @@
           "description": "",
           "displayName": "Header",
           "methods": [],
-          "actualName": "Header"
+          "actualName": "Header",
+          "props": {
+            "headerSpan": {
+              "type": {
+                "name": "bool"
+              },
+              "required": true,
+              "description": "Value doesn't matter, change does as it calls useEffect if it's not the first mount"
+            }
+          }
         }
       ]
     },
@@ -131,35 +224,17 @@
         {
           "description": "",
           "displayName": "InputTodo",
-          "methods": [
-            {
-              "name": "onChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "optional": false,
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "handleSubmit",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "e",
-                  "optional": false,
-                  "type": null
-                }
-              ],
-              "returns": null
+          "methods": [],
+          "actualName": "InputTodo",
+          "props": {
+            "addTodo": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
             }
-          ],
-          "actualName": "InputTodo"
+          }
         }
       ]
     },
@@ -169,47 +244,7 @@
         {
           "description": "",
           "displayName": "TodoContainer",
-          "methods": [
-            {
-              "name": "handleChange",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "id",
-                  "optional": false,
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "delTodo",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "id",
-                  "optional": false,
-                  "type": null
-                }
-              ],
-              "returns": null
-            },
-            {
-              "name": "addTodoItem",
-              "docblock": null,
-              "modifiers": [],
-              "params": [
-                {
-                  "name": "title",
-                  "optional": false,
-                  "type": null
-                }
-              ],
-              "returns": null
-            }
-          ],
+          "methods": [],
           "actualName": "TodoContainer"
         }
       ]
@@ -221,7 +256,30 @@
           "description": "",
           "displayName": "TodoItem",
           "methods": [],
-          "actualName": "TodoItem"
+          "actualName": "TodoItem",
+          "props": {
+            "todo": {
+              "type": {
+                "name": "object"
+              },
+              "required": false,
+              "description": "Info about id, title and completion status of todo"
+            },
+            "handleChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "deleteTodo": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     },
@@ -232,7 +290,30 @@
           "description": "",
           "displayName": "TodosList",
           "methods": [],
-          "actualName": "TodosList"
+          "actualName": "TodosList",
+          "props": {
+            "todos": {
+              "type": {
+                "name": "array"
+              },
+              "required": true,
+              "description": ""
+            },
+            "handleChange": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            },
+            "deleteTodo": {
+              "type": {
+                "name": "func"
+              },
+              "required": true,
+              "description": ""
+            }
+          }
         }
       ]
     }
